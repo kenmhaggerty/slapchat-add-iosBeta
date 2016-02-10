@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FISDataStore : NSObject
-
+@property (nonatomic, strong) NSArray *messages;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 + (instancetype) sharedDataStore;
