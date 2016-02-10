@@ -10,6 +10,7 @@
 		7DF3D3CF1C6AED0400D926BD /* slapChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3D3CD1C6AED0400D926BD /* slapChat.xcdatamodeld */; };
 		7DF3D3DA1C6AED9300D926BD /* FISMessage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3D3D71C6AED9300D926BD /* FISMessage+CoreDataProperties.m */; };
 		7DF3D3DB1C6AED9300D926BD /* FISMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3D3D91C6AED9300D926BD /* FISMessage.m */; };
+		7DF3D3DE1C6AF9D400D926BD /* FISAddMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3D3DD1C6AF9D400D926BD /* FISAddMessageViewController.m */; };
 		D879F339195E028000FC5285 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F338195E028000FC5285 /* Foundation.framework */; };
 		D879F33B195E028000FC5285 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F33A195E028000FC5285 /* CoreGraphics.framework */; };
 		D879F33D195E028000FC5285 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F33C195E028000FC5285 /* UIKit.framework */; };
@@ -43,6 +44,8 @@
 		7DF3D3D71C6AED9300D926BD /* FISMessage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FISMessage+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7DF3D3D81C6AED9300D926BD /* FISMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISMessage.h; sourceTree = "<group>"; };
 		7DF3D3D91C6AED9300D926BD /* FISMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISMessage.m; sourceTree = "<group>"; };
+		7DF3D3DC1C6AF9D400D926BD /* FISAddMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISAddMessageViewController.h; sourceTree = "<group>"; };
+		7DF3D3DD1C6AF9D400D926BD /* FISAddMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISAddMessageViewController.m; sourceTree = "<group>"; };
 		D879F335195E028000FC5285 /* slapChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slapChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D879F338195E028000FC5285 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D879F33A195E028000FC5285 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +135,8 @@
 				D879F34A195E028000FC5285 /* Main.storyboard */,
 				D879F378195E032D00FC5285 /* FISTableViewController.h */,
 				D879F379195E032D00FC5285 /* FISTableViewController.m */,
+				7DF3D3DC1C6AF9D400D926BD /* FISAddMessageViewController.h */,
+				7DF3D3DD1C6AF9D400D926BD /* FISAddMessageViewController.m */,
 				7DF3D3CD1C6AED0400D926BD /* slapChat.xcdatamodeld */,
 				7DF3D3D81C6AED9300D926BD /* FISMessage.h */,
 				7DF3D3D91C6AED9300D926BD /* FISMessage.m */,
@@ -276,6 +281,7 @@
 				7DF3D3CF1C6AED0400D926BD /* slapChat.xcdatamodeld in Sources */,
 				D879F349195E028000FC5285 /* FISAppDelegate.m in Sources */,
 				D879F37A195E032D00FC5285 /* FISTableViewController.m in Sources */,
+				7DF3D3DE1C6AF9D400D926BD /* FISAddMessageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

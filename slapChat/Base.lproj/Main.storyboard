@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -22,6 +23,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="My5-bs-kHF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37" y="145"/>
+        </scene>
+        <!--Add Message View Controller-->
+        <scene sceneID="15q-L4-q6b">
+            <objects>
+                <viewController id="ktr-jK-pX6" customClass="FISAddMessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lOF-3Y-A3C"/>
+                        <viewControllerLayoutGuide type="bottom" id="ugT-5h-Ec9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Qs-yd-BMr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LoB-QG-8ln">
+                                <rect key="frame" x="16" y="28" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdo-PA-iTo">
+                                <rect key="frame" x="143" y="66" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="ktr-jK-pX6" eventType="touchUpInside" id="rzg-pm-yhY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LoB-QG-8ln" firstAttribute="top" secondItem="lOF-3Y-A3C" secondAttribute="bottom" constant="8" id="Smc-VO-KI7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LoB-QG-8ln" secondAttribute="trailing" id="XLW-tT-2aB"/>
+                            <constraint firstItem="vdo-PA-iTo" firstAttribute="centerX" secondItem="2Qs-yd-BMr" secondAttribute="centerX" id="gze-yA-WKf"/>
+                            <constraint firstItem="LoB-QG-8ln" firstAttribute="leading" secondItem="2Qs-yd-BMr" secondAttribute="leadingMargin" id="mxq-VB-2eg"/>
+                            <constraint firstItem="vdo-PA-iTo" firstAttribute="top" secondItem="LoB-QG-8ln" secondAttribute="bottom" constant="8" id="qgJ-ga-q1N"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="LoB-QG-8ln" id="c5c-Ru-3bp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MZI-M6-J2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="464" y="-515"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="RqL-3I-AI1">
@@ -62,7 +105,13 @@
                             <outlet property="delegate" destination="hSu-IS-LD7" id="q4C-Tt-zNh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NQB-yp-9Jc"/>
+                    <navigationItem key="navigationItem" id="NQB-yp-9Jc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PSZ-dc-vqW">
+                            <connections>
+                                <segue destination="ktr-jK-pX6" kind="modal" identifier="addMessage" id="GHs-HM-eaO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXj-gc-RWV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
