@@ -16,6 +16,10 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedDataStore = [[FISDataStore alloc] init];
+        [_sharedDataStore fetchData];
+        if (!_sharedDataStore.messages.count) {
+            [_sharedDataStore generateTestData];
+        }
     });
 
     return _sharedDataStore;
@@ -79,4 +83,37 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+- (void)generateTestData {
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond) fromDate:[NSDate date]];
+    [components setHour:-[components hour]];
+    [components setMinute:-[components minute]];
+    [components setSecond:-[components second]];
+    NSDate *today = [calendar dateByAddingComponents:components toDate:[NSDate date] options:0];
+    
+    [components setHour:-24];
+    [components setMinute:0];
+    [components setSecond:0];
+    NSDate *yesterday = [calendar dateByAddingComponents:components toDate:today options:0];
+    
+    NSDate *twoDaysAgo = [calendar dateByAddingComponents:components toDate:yesterday options:0];
+    
+    FISMessage *message1 = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:self.managedObjectContext];
+    [message1 setContent:@"Hello World!"];
+    [message1 setCreatedAt:today];
+    
+    FISMessage *message2 = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:self.managedObjectContext];
+    [message2 setContent:@"Goodnight Moon!"];
+    [message2 setCreatedAt:yesterday];
+    
+    FISMessage *message3 = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:self.managedObjectContext];
+    [message3 setContent:@"Tomorrow the World!"];
+    [message3 setCreatedAt:twoDaysAgo];
+    
+    [self saveContext];
+    [self fetchData];
+}
+
 @end
