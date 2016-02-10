@@ -12,6 +12,7 @@
 @interface FISTableViewController ()
 @property (nonatomic, strong) NSArray *messages;
 @property (nonatomic, strong) FISDataStore *store;
+- (IBAction)sort:(id)sender;
 @end
 
 @implementation FISTableViewController
@@ -49,11 +50,19 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell" forIndexPath:indexPath];
 
-    FISMessage *message = [self.store.messages objectAtIndex:indexPath.row];
+    FISMessage *message = [self.messages objectAtIndex:indexPath.row];
     [cell.textLabel setText:message.content];
     [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", message.createdAt]];
     
     return cell;
+}
+
+- (IBAction)sort:(id)sender {
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(createdAt)) ascending:NO];
+    NSArray *sortedArray = [self.messages sortedArrayUsingDescriptors:@[sortDescriptor]];
+    [self setMessages:sortedArray];
+    [self.tableView reloadData];
 }
 
 - (void)generateTestData {
