@@ -21,6 +21,11 @@
     [super viewDidLoad];
     
     [self setStore:[FISDataStore sharedDataStore]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
     
     do {
         [self.store fetchData];
@@ -30,6 +35,7 @@
         }
     } while (!self.messages.count);
     
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
