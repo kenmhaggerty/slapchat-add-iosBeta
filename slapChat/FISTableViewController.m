@@ -44,6 +44,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell" forIndexPath:indexPath];
 
     FISMessage *message = [self.store.messages objectAtIndex:indexPath.row];
+    [cell.textLabel setText:message.content];
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", message.createdAt]];
     
     return cell;
 }
@@ -69,12 +71,12 @@
     [message1 setCreatedAt:today];
     
     FISMessage *message2 = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:self.store.managedObjectContext];
-    [message1 setContent:@"Goodnight Moon!"];
-    [message1 setCreatedAt:yesterday];
+    [message2 setContent:@"Goodnight Moon!"];
+    [message2 setCreatedAt:yesterday];
     
     FISMessage *message3 = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:self.store.managedObjectContext];
-    [message1 setContent:@"Tomorrow the World!"];
-    [message1 setCreatedAt:twoDaysAgo];
+    [message3 setContent:@"Tomorrow the World!"];
+    [message3 setCreatedAt:twoDaysAgo];
     
     [self.store saveContext];
     [self.store fetchData];
